@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Layerbits</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        padding: 0 !important;
+        overflow: auto;
+      }
+      
+      .popup-container {
+        margin: 0;
+        padding: 10px 12px;
+        background: #020617;
+        border: 1px solid #01ffdb;
+        border-radius: 8px;
+        color: #e5e7eb;
+        min-width: 220px;
+      }
+
+      .header {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #01ffdb;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .toggle-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        background: #0b1220;
+        padding: 14px 16px;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+        border: 1px solid #01ffdb;
+        outline: none;
+      }
+      
+      .toggle-row:focus,
+      .toggle-row:focus-visible {
+        outline: none;
+      }
+
+      .toggle-label {
+        font-size: 12px;
+        color: #e5e7eb;
+      }
+
+      /* toggle switch */
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 38px;
+        height: 20px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        outline: none;
+      }
+      
+      .switch input:focus,
+      .switch input:focus-visible {
+        outline: none;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #292929;
+        transition: 0.2s;
+        border-radius: 999px;
+        border: none;
+        outline: none;
+        box-shadow: none;
+      }
+      
+      .slider:focus,
+      .slider:focus-visible {
+        outline: none;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 2px;
+        top: 2px;
+        background-color: #e5e7eb;
+        transition: 0.2s;
+        border-radius: 999px;
+      }
+
+      input:checked + .slider {
+        background-color: #01ffdb;
+        box-shadow: 0 0 0 1px rgba(34,197,94,0.5), 0 4px 10px rgba(34,197,94,0.4);
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(16px);
+        background-color: #022c22;
+      }
+
+      .hint {
+        margin-top: 8px;
+        font-size: 11px;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="popup-container">
+      <div class="header">Layerbits</div>
+    <div class="toggle-row">
+      <span class="toggle-label">Enable Inspector</span>
+      <label class="switch">
+        <input type="checkbox" id="layerbits-toggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="hint">
+      Tip: Right click any element to lock it and change color formats from the
+      context menu.
+    </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
